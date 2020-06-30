@@ -1,0 +1,42 @@
+{
+  "settings": [
+    {
+      "id": "lon1",
+      "name": "left boundary (min longitude)",
+      "description": "Insert value for minimum longitude",
+      "defaultValue": null,
+      "type": "INTEGER"
+    },
+    {
+      "id": "lon2",
+      "name": "right boundary (max longitude)",
+      "description": "Insert value for maximum longitude",
+      "defaultValue": null,
+      "type": "INTEGER"
+    },
+    {
+      "id": "lat1",
+      "name": "lower boundary (min latitude)",
+      "description": "Insert value for minimum latitude",
+      "defaultValue": null,
+      "type": "INTEGER"
+    },
+    {
+      "id": "lat2",
+      "name": "upper boundary (max latitude)",
+      "description": "Insert value for maximum latitude",
+      "defaultValue": null,
+      "type": "INTEGER"
+    }
+  ],
+  "dependencies": {
+    "R": [
+      {
+        "name": "move"
+      },
+      {
+        "name": "foreach"
+      }
+	]
+  }
+}
