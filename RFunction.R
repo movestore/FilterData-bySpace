@@ -1,40 +1,42 @@
 library('move')
 library('foreach')
 
-rFunction <- function(lon=NULL,lat=NULL,data)
+rFunction <- function(lon1=NULL,lon2=NULL,lat1=NULL,lat2=NULL,data)
 {
   Sys.setenv(tz="GMT") 
 
-  if (is.null(lon))
+  if (is.null(lon1))
   {
-    logger.info(paste0("No longitude range provided, extent of data used."))
-    lon <- matrix(extent(data))[c(1,2),1]
+    logger.info(paste0("No left boundary (lon1) provided, extent of data used."))
+    lon1 <- matrix(extent(data))[c(1),1]
+  }
+  if (is.null(lon2))
+  {
+    logger.info(paste0("No right boundary (lon2) provided, extent of data used."))
+    lon2 <- matrix(extent(data))[c(2),1]
   }
   
+  if (is.null(lat1))
+  {
+    logger.info(paste0("No lower boundary (lat1) provided, extent of data used."))
+    lat1 <- matrix(extent(data))[c(3),1]
+  }
   if (is.null(lat))
   {
-    logger.info(paste0("No latitude range provided, extent of data used."))
-    lat <- matrix(extent(data))[c(3,4),1]
+    logger.info(paste0("No upper boundary (lat2) provided, extent of data used."))
+    lat2 <- matrix(extent(data))[c(4),1]
   }
   
-  if (length(lon)!=length(lat)) 
-  {
-    logger.info("lon and lat have different length, please correct. Return full data set.")
-    result <- data
-  } else
-  {
-    logger.info(paste0("You have selected the longitude range: [",lon, "] and the latutude range [",lat,"]."))
+  logger.info(paste0("You have selected the longitude range: [",lon1,",",lon2,"] and the latutude range [",lat1,",",lat2,"]."))
     
-    data.split <- split(data)
-    filt <- foreach(datai = data.split) %do% {
-      logger.info(namesIndiv(datai))
-      coo <- coordinates(datai)
-      datai[coo[,1] >= lon[1] & coo[,1] <= lon[2] & coo[,2]>= lat[1] & coo[,2]<= lat[2],]
-    }
-    names(filt) <- names(data.split)
-    
-    filt_nozero <- filt[unlist(lapply(filt, length) > 1)] 
-    result <- moveStack(filt_nozero)
+  data.split <- split(data)
+  filt <- foreach(datai = data.split) %do% {
+    logger.info(namesIndiv(datai))
+    coo <- coordinates(datai)
+    datai[coo[,1] >= lon1 & coo[,1] <= lon2 & coo[,2]>= lat1 & coo[,2]<= lat2,]
   }
-  result
+  names(filt) <- names(data.split)
+    
+  filt_nozero <- filt[unlist(lapply(filt, length) > 1)] 
+  result <- moveStack(filt_nozero)
 }
