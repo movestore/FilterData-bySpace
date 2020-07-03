@@ -21,7 +21,7 @@ rFunction <- function(lon1=NULL,lon2=NULL,lat1=NULL,lat2=NULL,data)
     logger.info(paste0("No lower boundary (lat1) provided, extent of data used."))
     lat1 <- matrix(extent(data))[c(3),1]
   }
-  if (is.null(lat))
+  if (is.null(lat2))
   {
     logger.info(paste0("No upper boundary (lat2) provided, extent of data used."))
     lat2 <- matrix(extent(data))[c(4),1]
@@ -29,7 +29,7 @@ rFunction <- function(lon1=NULL,lon2=NULL,lat1=NULL,lat2=NULL,data)
   
   logger.info(paste0("You have selected the longitude range: [",lon1,",",lon2,"] and the latutude range [",lat1,",",lat2,"]."))
     
-  data.split <- split(data)
+  data.split <- move::split(data)
   filt <- foreach(datai = data.split) %do% {
     logger.info(namesIndiv(datai))
     coo <- coordinates(datai)
