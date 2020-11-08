@@ -37,6 +37,11 @@ rFunction <- function(lon1=NULL,lon2=NULL,lat1=NULL,lat2=NULL,data)
   }
   names(filt) <- names(data.split)
     
-  filt_nozero <- filt[unlist(lapply(filt, length) > 1)] 
-  result <- moveStack(filt_nozero)
+  filt_nozero <- filt[unlist(lapply(filt, length) > 0)]
+  if (length(filt_nozero)==0) 
+    {
+    logger.info("Your output file contains no positions. Return NULL.")
+    result <- NULL
+    } else result <- moveStack(filt_nozero) #this gives timestamp error if empty list
+  result
 }
