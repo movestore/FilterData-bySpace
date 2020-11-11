@@ -5,28 +5,28 @@
       "name": "left boundary (min longitude)",
       "description": "Insert value for minimum longitude",
       "defaultValue": null,
-      "type": "INTEGER"
+      "type": "DOUBLE"
     },
     {
       "id": "lon2",
       "name": "right boundary (max longitude)",
       "description": "Insert value for maximum longitude",
       "defaultValue": null,
-      "type": "INTEGER"
+      "type": "DOUBLE"
     },
     {
       "id": "lat1",
       "name": "lower boundary (min latitude)",
       "description": "Insert value for minimum latitude",
       "defaultValue": null,
-      "type": "INTEGER"
+      "type": "DOUBLE"
     },
     {
       "id": "lat2",
       "name": "upper boundary (max latitude)",
       "description": "Insert value for maximum latitude",
       "defaultValue": null,
-      "type": "INTEGER"
+      "type": "DOUBLE"
     }
   ],
   "dependencies": {
@@ -38,5 +38,32 @@
         "name": "foreach"
       }
 	]
+  }
+  "license": {
+    "key": "MIT"
+  },
+  "language": "eng",
+  "keywords": [
+    "filter",
+    "locations",
+    "positions",
+    "space",
+    "latitude",
+	"longitude"
+  ],
+  "people": [
+    {
+      "firstName": "Andrea",
+      "middleInitials": null,
+      "lastName": "Kölzsch",
+      "email": "akoelzsch@ab.mpg.de",
+      "roles": ["author", "creator"],
+      "orcid": "0000-0003-0193-1563",
+      "affiliation": "Max-Planck-Institute of Animal Behavior",
+      "affiliationRor": "https://ror.org/026stee22"
+    }
+  ],
+  "documentation" : {
+    "url": "https://github.com/movestore/FilterData-bySpace/blob/master/README.md"
   }
 }

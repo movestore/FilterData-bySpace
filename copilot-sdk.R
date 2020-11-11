@@ -17,7 +17,7 @@ args <- list()
 #    args[["password"]] = "any-password"
 
 # Add your arguments of your r function here
-args[["lon1"]] = 8
+args[["lon1"]] = -800
 args[["lon2"]] = 14
 args[["lat1"]] = 52
 args[["lat2"]] = 55
