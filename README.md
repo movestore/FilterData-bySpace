@@ -36,8 +36,8 @@ none
 
 **Parameter `lat2`:** if no left boundary is provided, the data extent into this direction is selected.
 
-!> If the longitude and latitude values are out of the earth's range (latitude -90 to +90, longitude -180 to +180) a warning is given and the data extent into the respecitve direction selected.
+:warning: If the longitude and latitude values are out of the earth's range (latitude -90 to +90, longitude -180 to +180) a warning is given and the data extent into the respecitve direction selected.
 
-!> If the lower/left boundary is larger than the upper/right boundary, the values are switched and the data analysed accordingly. A warning is given.
+:warning: If the lower/left boundary is larger than the upper/right boundary, the values are switched and the data analysed accordingly. A warning is given.
 
 **Data:** If there are no locations in the requested area, NULL is returned as output data set. The NULL return value likely gives and error.
