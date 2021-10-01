@@ -3,7 +3,7 @@ library('foreach')
 
 rFunction <- function(lon1=NULL,lon2=NULL,lat1=NULL,lat2=NULL,data)
 {
-  Sys.setenv(tz="GMT") 
+  Sys.setenv(tz="UTC") 
 
   if (is.null(lon1))
   {
