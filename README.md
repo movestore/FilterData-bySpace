@@ -1,4 +1,4 @@
-# Filter Data by Space
+# Filter by Bounding Box
 MoveApps
 
 Github repository: *github.com/movestore/FilterData-bySpace*
@@ -18,23 +18,23 @@ moveStack in Movebank format
 ### Artefacts
 none
 
-### Parameters 
-`lon1`: minimum selected longitude (left boundary) to which the data shall be fitered. Unit: decimal degrees. Example: 5.2.
+### Settings 
+**left boundary (min longitude) (`lon1`):** minimum selected longitude (left boundary) to which the data shall be fitered. Unit: decimal degrees. Example: 5.2.
 
-`lon2`: maximum selected longitude (right boundary) to which the data shall be fitered. Unit: decimal degrees. Example: 11.5.
+**right boundary (max longitude) (`lon2`):** maximum selected longitude (right boundary) to which the data shall be fitered. Unit: decimal degrees. Example: 11.5.
 
-`lat1`: minimum selected latitude (lower boundary) to which the data shall be fitered. Unit: decimal degrees. Example: 51.8.
+**lower boundary (min latitude) (`lat1`):** minimum selected latitude (lower boundary) to which the data shall be fitered. Unit: decimal degrees. Example: 51.8.
 
-`lat2`: maximum selected latitude (upper boundary) to which the data shall be fitered. Unit: decimal degrees. Example: 55.0.
+**upper boundary (max latitude) (`lat2`):** maximum selected latitude (upper boundary) to which the data shall be fitered. Unit: decimal degrees. Example: 55.0.
 
 ### Null or error handling:
-**Parameter `lon1`:** if no left boundary is provided, the data extent into this direction is selected.
+**Setting `lon1`:** if no left boundary is provided, the data extent into this direction is selected.
 
-**Parameter `lon2`:** if no left boundary is provided, the data extent into this direction is selected.
+**setting `lon2`:** if no left boundary is provided, the data extent into this direction is selected.
 
-**Parameter `lat1`:** if no left boundary is provided, the data extent into this direction is selected.
+**Setting `lat1`:** if no left boundary is provided, the data extent into this direction is selected.
 
-**Parameter `lat2`:** if no left boundary is provided, the data extent into this direction is selected.
+**Setting `lat2`:** if no left boundary is provided, the data extent into this direction is selected.
 
 :warning: If the longitude and latitude values are out of the earth's range (latitude -90 to +90, longitude -180 to +180) a warning is given and the data extent into the respecitve direction selected.
 
