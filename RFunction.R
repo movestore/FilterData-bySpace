@@ -2,7 +2,7 @@ library('move2')
 library('foreach')
 library('sf')
 
-rFunction <- function(lon1=NULL,lon2=NULL,lat1=NULL,lat2=NULL,data)
+rFunction <- function(lon1=NULL,lon2=NULL,lat1=NULL,lat2=NULL,filter=TRUE,data)
 {
   Sys.setenv(tz="UTC") 
 
@@ -66,12 +66,24 @@ rFunction <- function(lon1=NULL,lon2=NULL,lat1=NULL,lat2=NULL,data)
   }
   
   logger.info(paste0("You have selected the longitude range: [",round(lon1,2),",",round(lon2,2),"] and the latitude range [",round(lat1,2),",",round(lat2,2),"]."))
-    
+   
+  if (filter==TRUE) logger.info("Data will be filtered to only return those in the bounding box.") else logger.info("Input data with annotation 'in_bbox' will be returned. Locations in the bounding box are indicated as 'in', others 'out'.")
+   
   data.split <- split(data,mt_track_id(data))
   filt <- foreach(datai = data.split) %do% {
     logger.info(unique(mt_track_id(datai)))
     coo <- st_coordinates(datai)
-    datai[coo[,1] >= lon1 & coo[,1] <= lon2 & coo[,2]>= lat1 & coo[,2]<= lat2,]
+    if (filter==TRUE) 
+    {
+      datai[coo[,1] >= lon1 & coo[,1] <= lon2 & coo[,2]>= lat1 & coo[,2]<= lat2,] 
+    } else 
+    {
+      ix <- which(coo[,1] >= lon1 & coo[,1] <= lon2 & coo[,2]>= lat1 & coo[,2]<= lat2)
+      datai$in_bbox <- NA
+      datai$in_bbox[ix] <- "in"
+      datai$in_bbox[-ix] <- "out"
+      datai
+    }
   }
   names(filt) <- names(data.split)
     

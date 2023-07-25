@@ -1,13 +1,13 @@
-# Filter by Bounding Box
+# Filter/Annotate by Bounding Box
 MoveApps
 
 Github repository: *github.com/movestore/FilterData-bySpace*
 
 ## Description
-The location data are filtered to lie within a user-given longitude/latitude square.
+The location data are either filtered to lie within a user-given longitude/latitude square or annotated with 'in_bbox'.
 
 ## Documentation
-Given user-provided latitude and longitude boundaries, the input tracking data set is filtered to all locations inside of those boundaries. Tracks are contained.
+Given user-provided latitude and longitude boundaries (bounding box), the input tracking data set is either filtered to all locations inside of those boundaries or all data are retained with an additional column 'in_bbox', indicating which locations lie within (in) or outside of (out) the bounding box. Tracks are contained.
 
 ### Input data
 move2 location object
@@ -19,6 +19,8 @@ move2 location object
 none
 
 ### Settings 
+**Annotate data or filter (`filter`):** checkbox if the data shall be filtered or if the complete input data shall be returned with the additional column 'in_bbox'. Default: TRUE.
+
 **left boundary (min longitude) (`lon1`):** minimum selected longitude (left boundary) to which the data shall be fitered. Unit: decimal degrees. Example: 5.2.
 
 **right boundary (max longitude) (`lon2`):** maximum selected longitude (right boundary) to which the data shall be fitered. Unit: decimal degrees. Example: 11.5.

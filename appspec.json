@@ -1,6 +1,13 @@
 {
   "settings": [
-    {
+      {
+      "id": "filter",
+      "name": "Filter data or annotate",
+      "description": "Select if you want your data filtered to retain only locations in the bounding box (TRUE) or keep all locations with the added annotation 'in_bbox' (FALSE)",
+      "defaultValue": true,
+      "type": "CHECKBOX"
+    },
+	{
       "id": "lon1",
       "name": "left boundary (min longitude)",
       "description": "Insert value for minimum longitude",
