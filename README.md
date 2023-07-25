@@ -4,16 +4,16 @@ MoveApps
 Github repository: *github.com/movestore/FilterData-bySpace*
 
 ## Description
-The Movement data are filtered to lie within a user-given longitude/latitude square.
+The location data are filtered to lie within a user-given longitude/latitude square.
 
 ## Documentation
-Given user-provided latitude and longitude boundaries, the input Movement data set is filtered to all locations inside of those boundaries.
+Given user-provided latitude and longitude boundaries, the input tracking data set is filtered to all locations inside of those boundaries. Tracks are contained.
 
 ### Input data
-moveStack in Movebank format
+move2 location object
 
 ### Output data
-moveStack in Movebank format
+move2 location object
 
 ### Artefacts
 none
@@ -26,6 +26,9 @@ none
 **lower boundary (min latitude) (`lat1`):** minimum selected latitude (lower boundary) to which the data shall be fitered. Unit: decimal degrees. Example: 51.8.
 
 **upper boundary (max latitude) (`lat2`):** maximum selected latitude (upper boundary) to which the data shall be fitered. Unit: decimal degrees. Example: 55.0.
+
+### Most common errors
+Please make an issue [here](https://github.com/movestore/FilterData-bySpace/issues) if you encounter repeated errors.
 
 ### Null or error handling:
 **Setting `lon1`:** if no left boundary is provided, the data extent into this direction is selected.

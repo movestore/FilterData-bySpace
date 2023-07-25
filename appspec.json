@@ -32,7 +32,7 @@
   "dependencies": {
     "R": [
       {
-        "name": "move"
+        "name": "move2"
       },
       {
         "name": "foreach"
@@ -49,7 +49,8 @@
     "positions",
     "space",
     "latitude",
-	"longitude"
+	"longitude",
+	"bounding box"
   ],
   "people": [
     {
